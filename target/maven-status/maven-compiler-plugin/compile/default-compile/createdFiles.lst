@@ -1,0 +1,12 @@
+com\mycompany\nubulamusicwebaplication\controllers\AppListener.class
+com\mycompany\nubulamusicwebaplication\service\UsuarioService.class
+com\mycompany\nubulamusicwebaplication\controllers\AutenticacionServlet.class
+com\mycompany\nubulamusicwebaplication\controllers\RegistroServlet.class
+com\mycompany\nubulamusicwebaplication\models\Usuario.class
+com\mycompany\nubulamusicwebaplication\dao\IUsuarioDAO.class
+com\mycompany\nubulamusicwebaplication\dao\UsuarioDAO.class
+com\mycompany\nubulamusicwebaplication\util\JPAUtil.class
+com\mycompany\nubulamusicwebaplication\JakartaRestConfiguration.class
+com\mycompany\nubulamusicwebaplication\resources\JakartaEE10Resource.class
+com\mycompany\nubulamusicwebaplication\controllers\ComunidadServlet.class
+com\mycompany\nubulamusicwebaplication\service\IUsuarioService.class
