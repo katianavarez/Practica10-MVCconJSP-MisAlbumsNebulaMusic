@@ -9,9 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 /**
  *
@@ -49,11 +51,14 @@ public class Usuario implements Serializable {
     @Column(name = "terminos_aceptados", nullable = false)
     private boolean terminosAceptados;
 
+    @OneToMany(mappedBy = "usuario")
+    private Set<Album> albumes;
+
     public Usuario() {
     }
 
     public Usuario(String nombre, String correo, String contrasenia, String pseudonimo,
-                   String estado, String cuenta, LocalDate fechaNacimiento, boolean terminosAceptados) {
+            String estado, String cuenta, LocalDate fechaNacimiento, boolean terminosAceptados, Set<Album> albumes) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasenia = contrasenia;
@@ -62,6 +67,15 @@ public class Usuario implements Serializable {
         this.cuenta = cuenta;
         this.fechaNacimiento = fechaNacimiento;
         this.terminosAceptados = terminosAceptados;
+        this.albumes = albumes;
+    }
+
+    public Set<Album> getAlbumes() {
+        return albumes;
+    }
+
+    public void setAlbumes(Set<Album> albumes) {
+        this.albumes = albumes;
     }
 
     public Long getId() {

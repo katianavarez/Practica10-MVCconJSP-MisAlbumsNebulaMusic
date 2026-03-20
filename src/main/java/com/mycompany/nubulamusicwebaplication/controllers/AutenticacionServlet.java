@@ -33,14 +33,18 @@ public class AutenticacionServlet extends HttpServlet {
         String correo = request.getParameter("correo");
         String contrasenia = request.getParameter("contrasenia");
         
-        Usuario usuario = usuarioService.autenticar(correo, contrasenia);
         
         try{
-            // crear sesión
+            Usuario usuario = usuarioService.autenticar(correo, contrasenia);
+            
+            HttpSession sesionAnterior = request.getSession(false);
+            
+            if (sesionAnterior != null){
+                sesionAnterior.invalidate();
+            }
+            
             HttpSession sesion = request.getSession(true);
             sesion.setAttribute("usuario", usuario);
-            sesion.setAttribute("correo", usuario.getCorreo());
-            sesion.setAttribute("nombre", usuario.getNombre());
             
             // con este no le pasas info acerca de la request
             response.sendRedirect(request.getContextPath() + "/index.jsp");
